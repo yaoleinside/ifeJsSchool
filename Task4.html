@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 4</title>
+</head>
+<style>
+    span {
+        margin-left: 10px;
+        background-color: red;
+        padding: 10px;
+    }
+    #work {
+        padding-top: 20px;
+    }
+</style>
+<body>
+<div>
+    <input type="text" id="in"/>
+    <button onclick="insertLeft()">左插入</button>
+    <button onclick="insertRight()">右插入</button>
+    <button onclick="removeLeft()">左删除</button>
+    <button onclick="removeRight()">右删除</button>
+</div>
+<div id="work">
+    <span>12</span><span>123</span><span>23</span><span>32</span>
+</div>
+<script>
+    var inputDom = document.getElementById("in");
+    var sequenceDom = document.getElementById("work");
+
+    function insertLeft(){
+        var span = document.createElement("span");
+        span.innerText = inputDom.value;
+        sequenceDom.insertBefore(span,sequenceDom.children[0]);
+    }
+
+    function insertRight() {
+        var span = document.createElement("span");
+        span.innerText = inputDom.value;
+        sequenceDom.appendChild(span);
+    }
+    
+    function removeLeft() {
+        var temp = sequenceDom.children[0];
+        alert(temp.innerText);
+        sequenceDom.removeChild(temp);
+    }
+
+    function removeRight() {
+        var temp = sequenceDom.children[sequenceDom.children.length -1];
+        alert(temp.innerText);
+        sequenceDom.removeChild(temp);
+    }
+</script>
+</body>
+</html>
